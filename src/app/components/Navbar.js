@@ -1,7 +1,11 @@
+"use client";
 import Image from "next/image";
-import Link from "next/link";
+import { useState } from "react";
+import Form from "./Form";
 
 const Navbar = () => {
+  const [showForm, setShowForm] = useState(false);
+
   return (
     <div className="flex flex-col justify-between  w-16 h-[804px] max-md:hidden">
       <div className="flex flex-col h-[50%] justify-between items-center">
@@ -33,6 +37,15 @@ const Navbar = () => {
       </div>
 
       <div className="flex flex-col items-center gap-3 mb-4 ">
+        <div
+          className="p-1 cursor-pointer "
+          onClick={() => setShowForm(!showForm)}
+        >
+          <p className="text-white text-medium font-semibold">Form</p>
+        </div>
+
+        {showForm && <Form showForm={showForm} setShowForm={setShowForm} />}
+
         <div className="p-1 cursor-pointer bg-[#bdd8f0] rounded-full ">
           <Image src="/user.png" width={35} height={25} alt="@logo" />
         </div>
