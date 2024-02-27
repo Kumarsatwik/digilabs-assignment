@@ -1,13 +1,17 @@
+"use client";
 import { FiSearch } from "react-icons/fi";
 import { GoBell } from "react-icons/go";
 import { MdWavingHand } from "react-icons/md";
+import useFormStore from "../store/FormDataStore";
 const SearchBar = () => {
+  const { name } = useFormStore();
   return (
     <div className="flex items-center gap-5 mb-5">
       <div className="text-white text-3xl leading-snug">
         <p className="font-light">Hello,</p>
         <p className="font-bold">
-          Dr. Colter! <MdWavingHand className="inline w-5 h-5 text-[#d9cb87]" />
+          {name ? name : "Dr. Colter!"}{" "}
+          <MdWavingHand className="inline w-5 h-5 text-[#d9cb87]" />
         </p>
       </div>
       <div className="flex items-center gap-3">

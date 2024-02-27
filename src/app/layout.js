@@ -1,8 +1,5 @@
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
-// import { ReduxProvider } from "./redux/provider";
-// import { store } from "./redux/store";
-
 // const inter = Inter({ subsets: ["latin"] });
 const manrope = Manrope({
   weight: ["400", "500", "600"],
@@ -17,11 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={manrope.className}>
-        {/* <ReduxProvider store={store}> */}
-        {children}
-        {/* </ReduxProvider> */}
-      </body>
+      <body className={manrope.className}>{children}</body>
     </html>
   );
 }

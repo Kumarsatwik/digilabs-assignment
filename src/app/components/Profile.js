@@ -1,8 +1,12 @@
+"use client";
 import React from "react";
 import Chat from "./Chat";
 import Image from "next/image";
+import useFormStore from "../store/FormDataStore";
 
 const Profile = () => {
+  const { email } = useFormStore();
+
   return (
     <div className=" bg-[#111729] rounded-3xl py-5 px-4 pb-10   flex flex-col justify-between items-center">
       <div className=" mt-7 relative rotate-45  h-28 w-28">
@@ -23,6 +27,7 @@ const Profile = () => {
       <div className="my-5 text-white flex flex-col items-center">
         <p className="text-xl font-semibold">Aliam Colter</p>
         <p className=" text-xs">Physician</p>
+        <p className="text-xs">{email}</p>
       </div>
 
       <div className="text-white bg-[#1C2A4E] rounded-3xl w-full px-5 py-2 flex items-center justify-between">

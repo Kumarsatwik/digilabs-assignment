@@ -2,15 +2,24 @@
 import Image from "next/image";
 import { useState } from "react";
 import Form from "./Form";
+import useFormStore from "../store/FormDataStore";
 
 const Navbar = () => {
   const [showForm, setShowForm] = useState(false);
+
+  const { name, email, image } = useFormStore();
+  console.log(image);
 
   return (
     <div className="flex flex-col justify-between  w-16 h-[804px] max-md:hidden">
       <div className="flex flex-col h-[50%] justify-between items-center">
         <span>
-          <Image src="/logo.png" alt="logo" width={40} height={40} />
+          <Image
+            src={image ? URL.createObjectURL(image) : "/logo.png"}
+            alt="logo"
+            width={40}
+            height={40}
+          />
         </span>
 
         <div className="flex flex-col gap-3">
